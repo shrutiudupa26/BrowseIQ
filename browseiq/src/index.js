@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import PropTypes from 'prop-types';
-import './index.css'; // Create this for styling
+import './index.css';
 
-// FloatingButton Component
 function FloatingButton({ icon, onClick }) {
   return (
-    <div className="floating-btn" onClick={onClick}>
+    <button className="floating-btn" onClick={onClick}>
       {icon}
-    </div>
+    </button>
   );
 }
 
@@ -19,14 +18,8 @@ FloatingButton.propTypes = {
 
 FloatingButton.defaultProps = {
   icon: '✍️',
-  onClick: () => alert('Floating button clicked!'),
+  onClick: () => alert('You clicked the floating button!'),
 };
 
-// Add button to DOM
-const rootDiv = document.createElement('div');
-rootDiv.id = 'my-react-root';
-document.body.appendChild(rootDiv);
-
-// Render component
-const root = ReactDOM.createRoot(document.getElementById('my-react-root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<FloatingButton />);

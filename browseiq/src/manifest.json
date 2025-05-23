@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Floating Button",
+  "version": "1.0",
+  "description": "Injects a React floating button like Grammarly",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["inject.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["static/js/*.js", "static/css/*.css"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "permissions": ["scripting", "activeTab"]
+}
