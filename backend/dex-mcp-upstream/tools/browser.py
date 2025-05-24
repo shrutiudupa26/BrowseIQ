@@ -5,6 +5,12 @@ from context import Context
 import json
 from datetime import datetime
 import os
+# Add these imports at the top
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from collections import Counter
+import string
 
 
 async def get_tabs_tool(context: Context, params: Dict[str, Any] = None) -> str:
@@ -462,4 +468,63 @@ async def query_history_by_date_tool(context: Context, params: Dict[str, Any] = 
     except ValueError as e:
         return f"Error: Invalid date format. Please use YYYY-MM-DD format or natural language like 'May 22nd, 2025'. Error: {str(e)}"
     except Exception as e:
-        return f"Error querying history: {str(e)}" 
+        return f"Error querying history: {str(e)}"
+
+
+async def query_top_interests_tool(context: Context, params: Dict[str, Any] = None) -> str:
+    """Query the browsing history to find the top 5 interests based on content analysis.
+    
+    Params: None - analyzes all available history
+    """
+    try:
+        # Load history data from contents.json
+        history_file = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "data", "contents.json")
+        with open(history_file, 'r', encoding='utf-8') as f:
+            history_data = json.load(f)
+    
+        # Initialize NLTK resources
+        nltk.download('punkt')
+        nltk.download('stopwords')
+        
+        # Initialize stopwords and common words to exclude
+        stop_words = set(stopwords.words('english'))
+        common_words = {
+            'use', 'using', 'used', 'like', 'may', 'also', 'one', 'two', 'first',
+            'new', 'click', 'get', 'see', 'help', 'make', 'can', 'please', 'many',
+            'copyright', 'rights', 'reserved', 'privacy', 'policy', 'terms',
+            'search', 'google', 'com', 'www', 'https', 'http', 'html', 'php'
+        }
+        stop_words.update(common_words)
+    
+        # Process all content and extract keywords
+        all_keywords = []
+        for item in history_data:
+            if 'content' in item:
+                # Clean and tokenize the text
+                text = item['content'].lower()
+                text = text.translate(str.maketrans('', '', string.punctuation))
+                tokens = word_tokenize(text)
+                
+                # Filter tokens
+                keywords = [word for word in tokens 
+                           if word not in stop_words 
+                           and len(word) > 2 
+                           and word.isalnum()]
+                all_keywords.extend(keywords)
+    
+        # Count frequencies and get top 5
+        keyword_freq = Counter(all_keywords)
+        top_interests = keyword_freq.most_common(5)
+    
+        if not top_interests:
+            return "No significant interests found in browsing history"
+    
+        # Generate summary
+        summary = "Your top 5 interests based on browsing history:\n\n"
+        for keyword, count in top_interests:
+            summary += f"• {keyword.title()}: mentioned {count} times\n"
+    
+        return summary
+    
+    except Exception as e:
+        return f"Error analyzing interests: {str(e)}"

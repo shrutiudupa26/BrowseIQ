@@ -31,7 +31,8 @@ from tools.browser import (
     grab_dom_tool,
     capture_with_highlights_tool,
     add_assistant_message_tool,
-    query_history_by_date_tool
+    query_history_by_date_tool,
+    query_top_interests_tool
 )
 
 # Configure logging
@@ -230,6 +231,78 @@ def setup_signal_handlers():
     signal.signal(signal.SIGINT, signal_handler)
     signal.signal(signal.SIGTERM, signal_handler)
 
+@mcp.tool(
+    name="query_top_interests",
+    description=(
+        "IMPORTANT: Use this tool whenever a user wants to know their main interests or topics based on their browsing history. "
+        "This tool analyzes the content of visited pages to identify the top 5 most frequent meaningful terms. "
+        "Keywords that should trigger this tool: 'interests', 'topics', 'themes', 'most visited', 'common subjects', 'frequently viewed'. "
+        "ALWAYS use this tool for queries about user interests or common themes in browsing history. "
+        "Example queries that MUST use this tool: "
+        "'What are my main interests based on my browsing?', "
+        "'Show me the top topics I browse about.', "
+        "'What themes appear most in my browsing history?', "
+        "'What do I frequently read about?'"
+    )
+)
+async def query_top_interests() -> str:
+    """
+    Analyze browsing history to identify the top 5 interests based on content analysis.
+
+    This tool processes the content of all visited pages to extract and rank the most
+    frequently occurring meaningful terms, providing insight into the user's main interests.
+
+    Example queries that should trigger this tool:
+    - "What are my main interests based on my browsing?"
+    - "Show me the top topics I browse about."
+    - "What themes appear most in my browsing history?"
+    - "What do I frequently read about?"
+
+    Returns:
+    - A formatted summary of the top 5 interests with their frequency counts.
+    """
+    logging.info("query_top_interests tool called")
+    return await query_top_interests_tool(context)
+
+
+async def start_background_services():
+    """Start background services like WebSocket server."""
+    global ws_server
+    try:
+        logger.info("Starting Dex MCP Server...")
+        ws_server = await start_websocket_server(context)
+        logger.info("WebSocket server started successfully")
+    except Exception as e:
+        logger.error(f"Failed to start WebSocket server: {e}")
+        raise
+
+
+async def cleanup():
+    """Clean up resources."""
+    global ws_server
+    logger.info("Shutting down servers...")
+    
+    # Close WebSocket connections
+    await context.close()
+    
+    # Close WebSocket server
+    if ws_server:
+        ws_server.close()
+        await ws_server.wait_closed()
+    
+    logger.info("Shutdown complete")
+
+
+# Set up signal handlers for graceful shutdown
+def setup_signal_handlers():
+    def signal_handler(signum, frame):
+        logger.info("Received shutdown signal")
+        asyncio.create_task(cleanup())
+        sys.exit(0)
+    
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
+
 
 if __name__ == "__main__":
     # Set up signal handlers
@@ -271,4 +344,3 @@ if __name__ == "__main__":
             pass
         loop.stop()
         loop.close()
-
