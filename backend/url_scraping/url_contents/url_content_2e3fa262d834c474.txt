@@ -1,4 +1,0 @@
-Dex Dashboard
-Welcome
-Log in to Dex to continue
-Continue with Google
