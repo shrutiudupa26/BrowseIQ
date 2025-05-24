@@ -4,3 +4,5 @@ to use the chrome extension api:
 3. run python history_processor.py
 4. load unpacked
 5. load JUST the extension folder (bc it has manifest.json)
+
+keyword extractor can be ignored it was just a test
