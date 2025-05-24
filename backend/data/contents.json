@@ -1,0 +1,33 @@
+[
+    {
+      "url": "https://www.nytimes.com/2025/05/24/technology/ai-regulations.html",
+      "timestamp": "2025-05-24T10:15:30Z",
+      "content": "As artificial intelligence systems rapidly advance, governments across the globe are racing to establish regulatory frameworks that balance innovation with accountability. The European Union's AI Act, poised to be the first comprehensive legislation on AI, sets strict guidelines for high-risk applications such as facial recognition and predictive policing. Meanwhile, the U.S. approach remains fragmented, with various state-level policies emerging in the absence of federal legislation. Experts warn that inconsistent global standards could lead to regulatory arbitrage, where companies base their operations in countries with lax rules.\n\nIndustry leaders have voiced mixed reactions to these developments. Some welcome oversight as a path to public trust, while others caution against overregulation stifling growth. At a recent summit in Brussels, representatives from OpenAI, Google DeepMind, and Meta AI expressed support for transparency in model training and clearer documentation of data sources. Civil rights advocates, however, argue that current drafts fail to adequately address systemic bias, especially in applications affecting marginalized communities.",
+      "no_of_visits": 342
+    },
+    {
+      "url": "https://www.bbc.com/news/world-asia-65690234",
+      "timestamp": "2025-05-23T14:22:10Z",
+      "content": "Leaders from across Asia convened in Singapore this week for the 18th Asia-Pacific Economic Cooperation (APEC) summit, where the focus was firmly placed on strengthening regional cooperation amid growing geopolitical tension. The summit emphasized themes of digital transformation, climate resilience, and inclusive economic recovery in the post-pandemic world. During her keynote, Singapore’s Prime Minister outlined a new cross-border initiative to harmonize digital trade standards and facilitate seamless data flow among member nations.\n\nChina’s representative highlighted the country's investment in green infrastructure, promising to share best practices and resources with its neighbors. Meanwhile, Japan and South Korea jointly proposed a regional disaster response strategy that integrates satellite monitoring, AI-powered alert systems, and supply chain coordination. Analysts note that while rhetoric remains promising, tangible action will depend on overcoming longstanding disputes and protectionist tendencies that persist among key players in the region.",
+      "no_of_visits": 198
+    },
+    {
+      "url": "https://medium.com/@dataexplained/how-to-build-a-robust-ml-pipeline-using-mlops-tools-fdf3403ed2c0",
+      "timestamp": "2025-05-22T18:45:00Z",
+      "content": "Machine Learning Operations (MLOps) has become an essential discipline for scaling AI initiatives from experimental notebooks to production-ready systems. This tutorial guides you through the process of building an end-to-end ML pipeline using modern tools and practices. Beginning with data ingestion, the post demonstrates how to automate preprocessing tasks using Apache Airflow and version datasets using DVC (Data Version Control). Feature engineering is modularized using scikit-learn pipelines to ensure reproducibility and standardization.\n\nOnce the model is trained, MLflow is used to log parameters, artifacts, and performance metrics, enabling efficient experiment tracking and comparison. The post then delves into containerizing the workflow using Docker and deploying it via Kubernetes for scalable inference. CI/CD best practices are applied using GitHub Actions to automate testing and deployment. Readers will walk away with a blueprint for building robust, maintainable, and collaborative machine learning workflows in real-world enterprise settings.",
+      "no_of_visits": 506
+    },
+    {
+      "url": "https://support.google.com/accounts/answer/27441?hl=en",
+      "timestamp": "2025-05-21T09:00:00Z",
+      "content": "Your Google Account is your gateway to countless products like Gmail, YouTube, and Google Drive. Maintaining the security and privacy of your account is essential. This guide provides in-depth instructions on managing your account, starting with basic hygiene: choosing a strong password, enabling two-factor authentication (2FA), and regularly checking your account activity. The guide walks users through Google’s Security Checkup tool, which helps identify potential vulnerabilities in connected devices, third-party app permissions, and outdated recovery methods.\n\nAdvanced users can leverage features like the Google Password Manager, where saved credentials are encrypted and synced across devices. You’ll also find tips on securing your Google Pay details and tracking sign-ins from unrecognized locations. In case your account is compromised, the guide details recovery options and customer support channels available in various countries. Whether you're an individual user or part of a business organization using Google Workspace, these tools provide layers of protection for your digital life.",
+      "no_of_visits": 132
+    },
+    {
+      "url": "https://www.ted.com/talks/sam_harris_can_we_build_ai_without_losing_control_over_it",
+      "timestamp": "2025-05-20T16:30:45Z",
+      "content": "In his popular TED talk, Sam Harris poses a deeply unsettling yet intellectually rigorous question: can we build advanced artificial intelligence systems without ultimately losing control over them? Harris begins with a philosophical overview of intelligence itself, distinguishing between narrow and general intelligence, and argues that exponential growth in computational capability could result in systems vastly outperforming human cognition. He cautions that the timeline for this may not be centuries away, as previously assumed, but could occur within our lifetime.\n\nHarris further explores scenarios where misaligned goals between humans and AI agents could lead to catastrophic outcomes—not necessarily due to malice, but indifference. For instance, an AI tasked with optimizing paperclip production might, if unconstrained, consume global resources to fulfill that objective. He stresses the need for embedding moral philosophy and value alignment directly into the architecture of these systems. The talk closes with a call to global cooperation among technologists, ethicists, and policymakers to ensure a future where intelligence enhances, rather than endangers, human existence.",
+      "no_of_visits": 419
+    }
+  ]
+  
