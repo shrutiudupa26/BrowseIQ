@@ -193,7 +193,6 @@ async def query_history_by_date(date: str) -> str:
     logging.info(f"query_history_by_date tool called with date={date}")
     return await query_history_by_date_tool(context, {"date": date})
 
-
 @mcp.tool()
 def generate_browsing_analytics(output_file: str = "../../data/browsing_analytics.json") -> str:
     """
@@ -218,6 +217,7 @@ def generate_browsing_analytics(output_file: str = "../../data/browsing_analytic
         JSON with domain_frequency and category_breakdown data including percentages for pie charts
     """
     return generate_browsing_analytics_tool(output_file)
+
 
 
 async def start_background_services():
@@ -299,4 +299,3 @@ if __name__ == "__main__":
             pass
         loop.stop()
         loop.close()
-

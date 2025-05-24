@@ -402,14 +402,14 @@ async def add_assistant_message_tool(context: Context, params: Dict[str, Any] = 
         return f"Error adding assistant message: {str(e)}"
 
 
-async def query_history_by_date_tool(context: Context, params: Dict[str, Any] = None) -> str:
-    """Query browsing history for a specific date and return matching items with summaries.
+async def query_interests_by_date_tool(context: Context, params: Dict[str, Any] = None) -> str:
+    """Query and analyze top interests from browsing history for a specific date.
     
     Params:
-        date (str): Required - Date in YYYY-MM-DD format or natural language (e.g., "May 22nd, 2025")
+        date (str): Required - Date in YYYY-MM-DD format or natural language (e.g., "May 24th, 2025")
     """
     if not params or "date" not in params:
-        return "Error: date parameter is required (format: YYYY-MM-DD or natural language like 'May 22nd, 2025')"
+        return "Error: date parameter is required (format: YYYY-MM-DD or natural language like 'May 24th, 2025')"
     
     date_str = params["date"]
     
@@ -447,29 +447,36 @@ async def query_history_by_date_tool(context: Context, params: Dict[str, Any] = 
         for item in history_data:
             item_date = datetime.strptime(item['timestamp'].split('T')[0], '%Y-%m-%d')
             if item_date.date() == query_date.date():
-                matching_items.append({
-                    'url': item['url'],
-                    'timestamp': item['timestamp'],
-                    'content': item['content'],
-                    'no_of_visits': item['no_of_visits']
-                })
+                matching_items.append(item)
         
         if not matching_items:
             return f"No browsing history found for {date_str}"
         
+        # Initialize keyword extractor
+        from url_scraping.keyword_extractor import KeywordExtractor
+        extractor = KeywordExtractor()
+        
+        # Combine all content for the day
+        combined_content = " ".join(item['content'] for item in matching_items)
+        
+        # Extract top interests
+        top_interests = extractor.extract_keywords(combined_content, top_n=5)
+        
         # Generate summary
-        summary = f"Found {len(matching_items)} pages visited on {date_str}:\n\n"
+        summary = f"Top 5 interests on {date_str} based on {len(matching_items)} pages visited:\n\n"
+        for i, interest in enumerate(top_interests, 1):
+            summary += f"{i}. {interest}\n"
+        
+        # Add some context for the interests
+        summary += "\nRelated pages visited:\n"
         for item in matching_items:
-            # Extract the first 200 characters of content as a preview
-            content_preview = item['content'][:200] + "..." if len(item['content']) > 200 else item['content']
-            summary += f"URL: {item['url']}\n"
-            summary += f"Visits: {item['no_of_visits']}\n"
-            summary += f"Summary: {content_preview}\n\n"
+            if any(interest.lower() in item['content'].lower() for interest in top_interests):
+                summary += f"- {item['url']}\n"
         
         return summary
             
     except ValueError as e:
-        return f"Error: Invalid date format. Please use YYYY-MM-DD format or natural language like 'May 22nd, 2025'. Error: {str(e)}"
+        return f"Error: Invalid date format. Please use YYYY-MM-DD format or natural language like 'May 24th, 2025'. Error: {str(e)}"
     except Exception as e:
         return f"Error querying history: {str(e)}"
 
