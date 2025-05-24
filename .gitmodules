@@ -1,0 +1,3 @@
+[submodule "backend/dex-mcp-upstream"]
+	path = backend/dex-mcp-upstream
+	url = https://github.com/kevinrgu/dex-mcp.git
