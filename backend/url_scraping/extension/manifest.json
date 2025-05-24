@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "BrowseIQ History Collector",
+  "version": "1.0",
+  "permissions": ["history"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": ["http://localhost/*"]
+}
