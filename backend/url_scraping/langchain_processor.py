@@ -53,6 +53,19 @@ class BrowseIQProcessor:
 
     def extract_content(self, url: str) -> str:
         """Safely extract content from URL with error handling"""
+        # First try our standalone function for Google searches
+        from urllib.parse import parse_qs, urlparse
+        if 'google.com/search' in url or 'google.com?q=' in url:
+            try:
+                parsed = urlparse(url)
+                params = parse_qs(parsed.query)
+                if 'q' in params:
+                    search_terms = params['q'][0]
+                    print(f"Detected Google search, returning terms: {search_terms}")
+                    return f"Google search: {search_terms}"
+            except Exception as e:
+                print(f"Error parsing Google URL: {e}")
+        
         try:
             headers = {
                 'User-Agent': 'Mozilla/5.0',
@@ -163,3 +176,4 @@ class BrowseIQProcessor:
         """Query the RAG chain with a question"""
         chain = self.create_rag_chain()
         return chain({"question": question})
+    
