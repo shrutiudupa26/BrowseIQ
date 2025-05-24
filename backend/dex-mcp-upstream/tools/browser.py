@@ -402,8 +402,8 @@ async def add_assistant_message_tool(context: Context, params: Dict[str, Any] = 
         return f"Error adding assistant message: {str(e)}"
 
 
-async def query_interests_by_date_tool(context: Context, params: Dict[str, Any] = None) -> str:
-    """Query and analyze top interests from browsing history for a specific date.
+async def query_history_by_date_tool(context: Context, params: Dict[str, Any] = None) -> str:
+    """Query browsing history for a specific date and return matching items with summaries.
     
     Params:
         date (str): Required - Date in YYYY-MM-DD format or natural language (e.g., "May 24th, 2025")
@@ -437,41 +437,57 @@ async def query_interests_by_date_tool(context: Context, params: Dict[str, Any] 
             # Try alternative path
             data_file = "../data/contents.json"
             if not os.path.exists(data_file):
-                return json.dumps({"error": f"Browsing history data file not found. Checked paths: ../../data/contents.json and ../data/contents.json"}, indent=2)
+                return f"Browsing history data file not found. Checked paths: ../../data/contents.json and ../data/contents.json"
         
         with open(data_file, 'r', encoding='utf-8') as f:
             history_data = json.load(f)
         
         # Filter items for the specified date
         matching_items = []
+        search_queries = []
+        
         for item in history_data:
             item_date = datetime.strptime(item['timestamp'].split('T')[0], '%Y-%m-%d')
             if item_date.date() == query_date.date():
                 matching_items.append(item)
+                
+                # Extract search queries from Google searches
+                content = item.get('content', '')
+                if 'Google search:' in content:
+                    query = content.replace('Google search:', '').strip()
+                    if query:
+                        search_queries.append(query)
         
         if not matching_items:
             return f"No browsing history found for {date_str}"
         
-        # Initialize keyword extractor
-        from url_scraping.keyword_extractor import KeywordExtractor
-        extractor = KeywordExtractor()
-        
-        # Combine all content for the day
-        combined_content = " ".join(item['content'] for item in matching_items)
-        
-        # Extract top interests
-        top_interests = extractor.extract_keywords(combined_content, top_n=5)
-        
         # Generate summary
-        summary = f"Top 5 interests on {date_str} based on {len(matching_items)} pages visited:\n\n"
-        for i, interest in enumerate(top_interests, 1):
-            summary += f"{i}. {interest}\n"
+        summary = f"Browsing Activity for {date_str}:\n"
+        summary += f"Total pages visited: {len(matching_items)}\n\n"
         
-        # Add some context for the interests
-        summary += "\nRelated pages visited:\n"
+        if search_queries:
+            summary += f"Google Searches ({len(search_queries)} total):\n"
+            for i, query in enumerate(search_queries, 1):
+                summary += f"{i}. {query}\n"
+            summary += "\n"
+        
+        # Show most visited domains
+        domains = {}
         for item in matching_items:
-            if any(interest.lower() in item['content'].lower() for interest in top_interests):
-                summary += f"- {item['url']}\n"
+            try:
+                from urllib.parse import urlparse
+                domain = urlparse(item['url']).netloc.lower()
+                if domain.startswith('www.'):
+                    domain = domain[4:]
+                domains[domain] = domains.get(domain, 0) + item.get('no_of_visits', 1)
+            except:
+                continue
+        
+        if domains:
+            summary += "Most Visited Sites:\n"
+            sorted_domains = sorted(domains.items(), key=lambda x: x[1], reverse=True)[:10]
+            for domain, visits in sorted_domains:
+                summary += f"- {domain}: {visits} visits\n"
         
         return summary
             
