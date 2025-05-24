@@ -133,3 +133,4 @@ Thumbs.db
 # Server and runtime files
 *.pid
 *.sock 
+.vercel
