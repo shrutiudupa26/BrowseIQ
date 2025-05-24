@@ -5,12 +5,6 @@ from context import Context
 import json
 from datetime import datetime
 import os
-# Add these imports at the top
-import nltk
-from nltk.tokenize import word_tokenize
-from nltk.corpus import stopwords
-from collections import Counter
-import string
 
 
 async def get_tabs_tool(context: Context, params: Dict[str, Any] = None) -> str:
@@ -405,14 +399,14 @@ async def add_assistant_message_tool(context: Context, params: Dict[str, Any] = 
         return f"Error adding assistant message: {str(e)}"
 
 
-async def query_history_by_date_tool(context: Context, params: Dict[str, Any] = None) -> str:
-    """Query browsing history for a specific date and return matching items with summaries.
+async def query_interests_by_date_tool(context: Context, params: Dict[str, Any] = None) -> str:
+    """Query and analyze top interests from browsing history for a specific date.
     
     Params:
-        date (str): Required - Date in YYYY-MM-DD format or natural language (e.g., "May 22nd, 2025")
+        date (str): Required - Date in YYYY-MM-DD format or natural language (e.g., "May 24th, 2025")
     """
     if not params or "date" not in params:
-        return "Error: date parameter is required (format: YYYY-MM-DD or natural language like 'May 22nd, 2025')"
+        return "Error: date parameter is required (format: YYYY-MM-DD or natural language like 'May 24th, 2025')"
     
     date_str = params["date"]
     
@@ -444,87 +438,35 @@ async def query_history_by_date_tool(context: Context, params: Dict[str, Any] = 
         for item in history_data:
             item_date = datetime.strptime(item['timestamp'].split('T')[0], '%Y-%m-%d')
             if item_date.date() == query_date.date():
-                matching_items.append({
-                    'url': item['url'],
-                    'timestamp': item['timestamp'],
-                    'content': item['content'],
-                    'no_of_visits': item['no_of_visits']
-                })
+                matching_items.append(item)
         
         if not matching_items:
             return f"No browsing history found for {date_str}"
         
+        # Initialize keyword extractor
+        from url_scraping.keyword_extractor import KeywordExtractor
+        extractor = KeywordExtractor()
+        
+        # Combine all content for the day
+        combined_content = " ".join(item['content'] for item in matching_items)
+        
+        # Extract top interests
+        top_interests = extractor.extract_keywords(combined_content, top_n=5)
+        
         # Generate summary
-        summary = f"Found {len(matching_items)} pages visited on {date_str}:\n\n"
+        summary = f"Top 5 interests on {date_str} based on {len(matching_items)} pages visited:\n\n"
+        for i, interest in enumerate(top_interests, 1):
+            summary += f"{i}. {interest}\n"
+        
+        # Add some context for the interests
+        summary += "\nRelated pages visited:\n"
         for item in matching_items:
-            # Extract the first 200 characters of content as a preview
-            content_preview = item['content'][:200] + "..." if len(item['content']) > 200 else item['content']
-            summary += f"URL: {item['url']}\n"
-            summary += f"Visits: {item['no_of_visits']}\n"
-            summary += f"Summary: {content_preview}\n\n"
+            if any(interest.lower() in item['content'].lower() for interest in top_interests):
+                summary += f"- {item['url']}\n"
         
         return summary
             
     except ValueError as e:
-        return f"Error: Invalid date format. Please use YYYY-MM-DD format or natural language like 'May 22nd, 2025'. Error: {str(e)}"
-    except Exception as e:
-        return f"Error querying history: {str(e)}"
-
-
-async def query_top_interests_tool(context: Context, params: Dict[str, Any] = None) -> str:
-    """Query the browsing history to find the top 5 interests based on content analysis.
-    
-    Params: None - analyzes all available history
-    """
-    try:
-        # Load history data from contents.json
-        history_file = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "data", "contents.json")
-        with open(history_file, 'r', encoding='utf-8') as f:
-            history_data = json.load(f)
-    
-        # Initialize NLTK resources
-        nltk.download('punkt')
-        nltk.download('stopwords')
-        
-        # Initialize stopwords and common words to exclude
-        stop_words = set(stopwords.words('english'))
-        common_words = {
-            'use', 'using', 'used', 'like', 'may', 'also', 'one', 'two', 'first',
-            'new', 'click', 'get', 'see', 'help', 'make', 'can', 'please', 'many',
-            'copyright', 'rights', 'reserved', 'privacy', 'policy', 'terms',
-            'search', 'google', 'com', 'www', 'https', 'http', 'html', 'php'
-        }
-        stop_words.update(common_words)
-    
-        # Process all content and extract keywords
-        all_keywords = []
-        for item in history_data:
-            if 'content' in item:
-                # Clean and tokenize the text
-                text = item['content'].lower()
-                text = text.translate(str.maketrans('', '', string.punctuation))
-                tokens = word_tokenize(text)
-                
-                # Filter tokens
-                keywords = [word for word in tokens 
-                           if word not in stop_words 
-                           and len(word) > 2 
-                           and word.isalnum()]
-                all_keywords.extend(keywords)
-    
-        # Count frequencies and get top 5
-        keyword_freq = Counter(all_keywords)
-        top_interests = keyword_freq.most_common(5)
-    
-        if not top_interests:
-            return "No significant interests found in browsing history"
-    
-        # Generate summary
-        summary = "Your top 5 interests based on browsing history:\n\n"
-        for keyword, count in top_interests:
-            summary += f"• {keyword.title()}: mentioned {count} times\n"
-    
-        return summary
-    
+        return f"Error: Invalid date format. Please use YYYY-MM-DD format or natural language like 'May 24th, 2025'. Error: {str(e)}"
     except Exception as e:
         return f"Error analyzing interests: {str(e)}"
