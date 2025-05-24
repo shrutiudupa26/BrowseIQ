@@ -1,0 +1,232 @@
+Cursor - The AI Code Editor
+Pricing
+Features
+Enterprise
+Blog
+Forum
+Careers
+Sign in
+Download
+The AI
+Code Editor
+Built to make you extraordinarily productive,
+Cursor is the best way to code with AI.
+Download for
+MacOS
+All Downloads
+Trusted by engineers at
+Johnson & Johnson
+OpenAI
+Stripe
+Samsung
+Instacart
+Perplexity
+Ramp
+Shopify
+US Foods
+MercadoLibre
+Tab, tab, tab
+Cursor lets you breeze through changes by predicting
+your next edit.
+Knows your codebase
+Get answers from your codebase or refer to files or docs.
+Use the model's code in one click.
+Edit in natural language
+Cursor lets you write code using instructions.
+Update entire classes or functions with a simple prompt.
+Build software faster
+Intelligent, fast, and familiar, Cursor is the best way to code with AI.
+See more features
+Frontier Intelligence
+Powered by a mix of purpose-built and frontier models, Cursor is smart and fast.
+Feels Familiar
+Import all your extensions, themes, and keybindings in one click.
+Privacy Options
+If you enable Privacy Mode, your code is never stored remotely. Cursor is SOC 2 certified.
+Frontier Intelligence
+Powered by a mix of purpose-built and frontier models, Cursor is smart and fast.
+Feels Familiar
+Import all your extensions, themes, and keybindings in one click.
+Privacy Options
+If you enable Privacy Mode, your code is never stored remotely. Cursor is SOC 2 certified.
+Blog
+Blog
+Iterating with Shadow Workspaces
+Hidden windows and kernel-level folder proxies to let AIs iterate on code without affecting the user.
+Keep Reading
+Posted by
+Arvid
+19
+minutes read
+Loved by
+world-class devs
+Engineers all around the world reach for Cursor by choice.
+Cursor is at least a 2x improvement over Copilot.
+It's amazing having an AI pair programmer, and is an incredible accelerator for me and my team.
+Ben Bernard
+Instacart
+The Cursor tab completion while coding is occasionally so magic it defies reality - about ~25% of the time it is anticipating exactly what I want to do.
+It is enough to make you believe that eventually you'll be able to code at the speed of thought.
+Kevin Whinnery
+OpenAI
+Cursor is hands down my biggest workflow improvement in years
+Sawyer Hood
+Figma
+I love writing code and Cursor is a necessity. Cursor is steps ahead of my brain, proposing multi-line edits so I type 'tab' more than anything else.
+Andrew Milich
+Notion
+Cursor is so good, and literally gets better/more feature-rich every couple of weeks.
+Morgan McGuire
+Weights & Biases
+Cursor is awesome!
+Someone finally put GPT into a code editor in a seamless way. It's so elegant and easy. No more copying and pasting. I'm an hour in and already hooked.
+Andrew McCalip
+Varda
+Cursor is the best AI developer tool right now, avoid it at your own peril
+Logan Kilpatrick
+Google
+Started using Cursor yesterday & i'm blown away. it's how Copilot should feel. i'm completely off VSCode now.
+Sam Whitmore
+New Computer
+Cursor is the best product I've used in a while - it's an AI enabled editor.
+I just asked it to write a README for a project I've been working on - analyzed the code-base and worked first time.
+Alex MacCaw
+Reflect
+Cursor is the best product I've used in a while - it's an AI enabled editor.
+I just asked it to write a README for a project I've been working on - analyzed the code-base and worked first time.
+Zeke Sikelianos
+Replicate
+Gonna apply to YC and list Cursor as my cofounder
+Cory Etzkorn
+Notion
+Cursor's new auto-complete is insane
+You no longer need to prompt it. It predicts what code you want based on what you're doing. Accept by hitting tab
+In this video I change the CSS class of one link. I then simply keep hitting tab to make the same change to all other links
+Marc Köhlbrugge
+WIP
+I really like how Cursor suggests edits to existing code. It noticed I was inconsistent with my markup and popped up this suggestion that matched my other items!
+Wes Bos
+Internet
+Cursor is 🐐-ed for real
+Steven Tey
+Dub
+I really like how Cursor suggests edits to existing code. It noticed I was inconsistent with my markup and popped up this suggestion that matched my other items!
+Wes Bos
+Internet
+The most useful AI tool that I currently pay for is, hands down, is Cursor
+It's fast, autocompletes when and where you need it to, handles brackets properly, sensible keyboard shortcuts, bring- your-own-model...everything is well put together.
+shadcn
+Vercel
+I went from never hearing about Cursor to many IC engineers telling me it's their new favorite tool. Seemingly overnight! Pretty wild product-market fit.
+Josh Miller
+The Browser Company
+I installed Cursor
+... oh
+Kent C. Dodds
+Internet
+After many recommendations, I finally switched from VSC to Cursor and ... wow!
+It's absolutely incredible. If you like Copilot (or if you don't), you'll be blown away by Cursor.
+There is no going back. 🤯
+Johannes Schickling
+Prisma
+Cursor is at least a 2x improvement over Copilot.
+It's amazing having an AI pair programmer, and is an incredible accelerator for me and my team.
+Ben Bernard
+Instacart
+The Cursor tab completion while coding is occasionally so magic it defies reality - about ~25% of the time it is anticipating exactly what I want to do.
+It is enough to make you believe that eventually you'll be able to code at the speed of thought.
+Kevin Whinnery
+OpenAI
+Cursor is hands down my biggest workflow improvement in years
+Sawyer Hood
+Figma
+I love writing code and Cursor is a necessity. Cursor is steps ahead of my brain, proposing multi-line edits so I type 'tab' more than anything else.
+Andrew Milich
+Notion
+Cursor is so good, and literally gets better/more feature-rich every couple of weeks.
+Morgan McGuire
+Weights & Biases
+Cursor is awesome!
+Someone finally put GPT into a code editor in a seamless way. It's so elegant and easy. No more copying and pasting. I'm an hour in and already hooked.
+Andrew McCalip
+Varda
+Cursor is the best AI developer tool right now, avoid it at your own peril
+Logan Kilpatrick
+Google
+started using Cursor yesterday & i'm blown away. it's how Copilot should feel. i'm completely off VSCode now.
+Sam Whitmore
+New Computer
+Cursor is the best product I've used in a while - it's an AI enabled editor.
+I just asked it to write a README for a project I've been working on - analyzed the code-base and worked first time.
+Alex MacCaw
+Reflect
+Cursor has changed the game. I really can't imagine writing code without it at this point. The switch from VSCode is easy, and now I have AI superpowers right in my editor and my terminal.
+Zeke Sikelianos
+Replicate
+Gonna apply to YC and list Cursor as my cofounder
+Cory Etzkorn
+Notion
+Cursor's new auto-complete is insane
+You no longer need to prompt it. It predicts what code you want based on what you're doing. Accept by hitting tab
+In this video I change the CSS class of one link. I then simply keep hitting tab to make the same change to all other links
+Marc Köhlbrugge
+WIP
+I really like how Cursor suggests edits to existing code. It noticed I was inconsistent with my markup and popped up this suggestion that matched my other items!
+Wes Bos
+Internet
+Cursor is 🐐-ed for real
+Steven Tey
+Dub
+I really like how Cursor suggests edits to existing code. It noticed I was inconsistent with my markup and popped up this suggestion that matched my other items!
+Wes Bos
+Internet
+The most useful AI tool that I currently pay for is, hands down, is Cursor
+It's fast, autocompletes when and where you need it to, handles brackets properly, sensible keyboard shortcuts, bring- your-own-model...everything is well put together.
+shadcn
+Vercel
+I went from never hearing about Cursor to many IC engineers telling me it's their new favorite tool. Seemingly overnight! Pretty wild product-market fit.
+Josh Miller
+The Browser Company
+I installed Cursor
+... oh
+Kent C. Dodds
+Internet
+After many recommendations, I finally switched from VSC to Cursor and ... wow!
+It's absolutely incredible. If you like Copilot (or if you don't), you'll be blown away by Cursor.
+There is no going back. 🤯
+Johannes Schickling
+Prisma
+Try Cursor Now
+Download for free
+hi@cursor.com
+©
+2025
+Made by
+Anysphere
+English
+Product
+Pricing
+Features
+Enterprise
+Downloads
+Students
+Resources
+Docs
+Blog
+Forum
+Changelog
+Company
+Anysphere
+Careers
+Community
+Legal
+Terms
+Security
+Privacy
+SOC 2 Certified
+©
+2025
+Made by
+Anysphere
+English
+SOC 2 Certified

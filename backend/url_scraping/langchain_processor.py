@@ -13,6 +13,7 @@ import re
 from urllib.parse import urlparse
 import requests
 from bs4 import BeautifulSoup
+import time
 
 load_dotenv()
 
@@ -53,8 +54,28 @@ class BrowseIQProcessor:
     def extract_content(self, url: str) -> str:
         """Safely extract content from URL with error handling"""
         try:
-            headers = {'User-Agent': 'Mozilla/5.0'}
-            response = requests.get(url, headers=headers, timeout=10, verify=True)
+            headers = {
+                'User-Agent': 'Mozilla/5.0',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                'Accept-Language': 'en-US,en;q=0.5'
+            }
+            
+            # Follow redirects and get final URL
+            session = requests.Session()
+            response = session.get(url, headers=headers, timeout=15, verify=True, allow_redirects=True)
+            
+            # Check if this is a search engine result page
+            if 'google.com/search' in response.url:
+                # Extract actual result links from search page
+                soup = BeautifulSoup(response.text, 'html.parser')
+                result_links = [a['href'] for a in soup.select('a[href^="/url?"]') 
+                              if 'url=' in a['href']]
+                
+                if result_links:
+                    # Get content from first result
+                    first_result = result_links[0].split('url=')[1].split('&')[0]
+                    response = session.get(first_result, headers=headers, timeout=15, verify=True)
+            
             response.raise_for_status()
             
             soup = BeautifulSoup(response.text, 'html.parser')
@@ -73,22 +94,21 @@ class BrowseIQProcessor:
             print(f"Error extracting content from {url}: {e}")
             return ""
 
-    def process_urls(self, urls):
+    def process_urls(self, urls, batch_size=5, delay_seconds=1):
         """Process URLs and store content in text files"""
         documents = []
         
-        for url in urls:
+        for i, url in enumerate(urls):
             if not self.is_valid_url(url):
-                print(f"Skipping invalid URL: {url}")
                 continue
-
+                
             try:
-                # Extract and store content
                 content = self.extract_content(url)
                 if not content:
+                    print(f"Skipping {url} - no content available")
                     continue
-
-                # Create safe filename and save content
+                
+                # Save content to file
                 filename = self.sanitize_filename(url)
                 filepath = os.path.join(self.content_dir, filename)
                 
@@ -97,20 +117,25 @@ class BrowseIQProcessor:
                 
                 self.url_content_map[url] = filepath
                 
-                # Process for vector store
+                # Process for vector store in batches
                 loader = WebBaseLoader(url)
                 documents.extend(loader.load())
                 
+                # Process batch and add delay
+                if (i+1) % batch_size == 0 or i == len(urls)-1:
+                    if documents:
+                        splits = self.text_splitter.split_documents(documents)
+                        self.vector_store = Chroma.from_documents(
+                            documents=splits,
+                            embedding=self.embeddings,
+                            persist_directory="./chroma_db"
+                        )
+                        documents = []  # Reset for next batch
+                        time.sleep(delay_seconds)  # Add delay between batches
+            
             except Exception as e:
                 print(f"Error processing {url}: {e}")
-
-        if documents:
-            splits = self.text_splitter.split_documents(documents)
-            self.vector_store = Chroma.from_documents(
-                documents=splits,
-                embedding=self.embeddings,
-                persist_directory="./chroma_db"
-            )
+                continue
 
     def get_url_content(self, url: str) -> str:
         """Safely retrieve content for a URL"""

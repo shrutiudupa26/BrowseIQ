@@ -1,0 +1,202 @@
+Inside Anthropic’s First Developer Day, Where AI Agents Took Center Stage | WIRED
+Skip to main content
+Open Navigation Menu
+Menu
+Inside Anthropic’s First Developer Day, Where AI Agents Took Center Stage
+Security
+Politics
+The Big Story
+Business
+Science
+Culture
+Ideas
+Merch
+Reviews
+More
+Chevron
+Search
+Search
+Security
+Politics
+The Big Story
+Business
+Science
+Culture
+Ideas
+Merch
+Reviews
+Podcasts
+Video
+Newsletters
+Magazine
+Travel
+Steven Levy's Plaintext Column
+WIRED Classics from the Archive
+Events
+WIRED Insider
+WIRED Consulting
+Coupons
+Kylie Robison
+Business
+May 23, 2025 1:16 PM
+Inside Anthropic’s First Developer Day, Where AI Agents Took Center Stage
+Anthropic CEO Dario Amodei said everything human workers do now will eventually be done by AI systems.
+Anthropic CEO Dario Amodei.
+Photo-Illustration: WIRED Staff; PHotograph: FABRICE COFFRINI/Getty Images
+Save this story
+Save
+Save this story
+Save
+Anthropic’s first
+developer conference
+kicked off in San Francisco on Thursday, and while the rest of the industry races toward artificial general intelligence, at Anthropic the goal of the year is deploying a “virtual collaborator” in the form of an autonomous AI agent.
+“We're all going to have to contend with the idea that everything you do is eventually going to be done by AI systems,” Anthropic CEO Dario Amodei said in a press briefing. “This will happen.”
+As roughly 500 attendees munched breakfast sandwiches with an abnormal amount of arugula, and Anthropic staffers milled about in company-issued baseball caps, Amodei took the stage with his chief product officer, Mike Krieger.
+“When do you think there will be the first billion-dollar company with one human employee?” Krieger asked. Amodei, wearing a light-gray jacket and a pair of Brooks running shoes, replied without skipping a beat: “2026.” (Later in the press lounge, a spokesperson said they dub this version of Amodei “professor panda” due to his casual-professional attire and his love for pandas—his Slack profile picture is him with a stuffed panda.
+Photograph: Don Feria/AP Images
+There’s a common company line you’ll hear about agents, and Krieger got to it quickly: They won’t replace employees, just help human workers with tasks. “They're moving from just being engineers to being managers of several autonomous agents, tackling everything from a simple coding task to complex, full-stack development projects across multiple code bases,” Krieger said. “It took our technical onboarding time to get engineers up to speed from two to three weeks to two to three days.”
+It’s a belief echoed by Anthropic’s top brass. Cofounder Jack Clark
+has said
+he expects people to “manage fleets of AI agents,” while Amodei says he
+believes
+software engineers are necessary (for now) to guide models. Still, as the models get more capable in areas from coding to creative writing, it certainly seems like redundancies are imminent.
+“I think we're just at the beginning of what we can do with the new generation of model in terms of tasks,” Amodei said, noting that he’s particularly excited about Opus’ ability to aid in cybersecurity and biomedical research.
+Anthropic is making a big push into biomedical research,
+offering up to $20,000 in API credits
+to researchers in biology and genetics. “We have found that the [new] model’s abilities in biology are substantially better,” Amodei said in a press briefing. This has contributed to Claude Opus 4’s Chemical, Biological, Radiological, and Nuclear risk level, making it the highest risk model Anthropic has released to date
+based on its Responsible Scaling Policy
+.
+Anthropic CPO Mike Krieger
+Photograph: Don Feria/AP Images
+Anthropic CEO Dario Amodei
+Photograph: Don Feria/AP Images
+After the morning keynote, journalists were ushered from the dark auditorium to a sunny deck upstairs, and I went to scavenge for snacks and doodads—I got a handful of Anthropic magnets and a tote bag that says “Code w/ Claude.” After an hour of media gossip and diet cokes, we headed back down for a press briefing with Amodei (who skipped into his chair) and Krieger.
+In March, Amodei had
+said
+that “90 percent of code” will be written by AI within the next six months. So I was curious to ask both executives how much of Anthropic's code is currently written by Claude.
+“Something like over 70 percent of [Anthropic’s] pull requests are now Claude code written,” Krieger told me. As for what those engineers are doing with the extra time, Krieger said they’re orchestrating the Claude codebase and, of course, attending meetings. “It really becomes apparent how much else is in the software engineering role,” he noted.
+The pair fiddled with Voss water bottles and answered an array of questions from the press about an upcoming
+compute cluster with Amazon
+(Amodei says “parts of that cluster are already being used for research,”) and the displacement of workers due to AI (“I don't think you can offload your company strategy to something like that,” Krieger said).
+We’d been told by spokespeople that we weren’t allowed to ask questions about policy and regulation, but Amodei offered some unprompted insight into his views on a controversial provision in President Trump’s megabill that would ban state-level AI regulation for 10 years: “If you're driving the car, it's one thing to say ‘we don't have to drive with the steering wheel now.’ It's another thing to say ‘we're going to rip out the steering wheel, and we can't put it back in for 10 years,’” Amodei said.
+What does Amodei think about the most? He says the race to the bottom, where safety measures are cut in order to compete in the AI race.
+“The absolute puzzle of running Anthropic is that we somehow have to find a way to do both,” Amodei said, meaning the company has to compete and deploy AI safely. “You might have heard this stereotype that, ‘Oh, the companies that are the safest, they take the longest to do the safety testing. They're the slowest.’ That is not what we found at all.”
+Photograph: Don Feria/AP Images
+Photograph: Don Feria/AP Images
+Photograph: Don Feria/AP Images
+After an array of journalist-exclusive fireside chats with Anthropic’s top researchers, including researcher and philosopher Amanda Askell, cofounder Chris Olah, and researcher Jan Leike, attendees poured out of the event center into Waymos and Ubers or waited around for the after-party.
+What I heard from
+Krieger on Wednesday
+, and from a spokesperson at the conference, is that the company decided to throw this conference now because it’s finally a big enough company to host one.
+The company has doubled in size in the past year to 1,300 employees and is valued at a whopping $61.5 billion. For a company that once positioned itself as the careful cousin in a reckless industry, Anthropic seems ready to step into the spotlight—and eager to host the party.
+You Might Also Like …
+In your inbox:
+Upgrade your life with
+WIRED-tested gear
+“Wi-Fi keeps going down”
+: Trump’s RTO mandate is going terribly
+Big Story:
+The worm that
+no computer scientist can crack
+Yuval Noah Harari
+: “Prepare to share the planet with AI superintelligence”
+Uncanny Valley:
+An insider look at
+the influence of Silicon Valley
+Kylie Robison
+is a senior correspondent at WIRED covering the business of artificial intelligence. She was previously a reporter at The Verge, Fortune, and Business Insider. Please send story tips (no PR pitches) to @kylie.01 on Signal. ...
+Read more
+Senior correspondent
+Topics
+artificial intelligence
+Anthropic
+chatbots
+research
+Read More
+DOGE Used a Meta AI Model to Review Emails From Federal Workers
+DOGE tested and used Meta’s Llama 2 model to review and classify responses from federal workers to the infamous “Fork in the Road” email.
+Makena Kelly
+Behold the Social Security Administration’s AI Training Video
+Social Security workers are being asked to use an AI chatbot. An animated video on how to do so failed to mention that the chatbot can’t be trusted with personally identifiable information.
+David Gilbert
+OpenAI and the FDA Are Holding Talks About Using AI In Drug Evaluation
+High-ranking OpenAI employees have met with the FDA multiple times in recent weeks to discuss AI and a project called cderGPT.
+Will Knight
+Google DeepMind’s AI Agent Dreams Up Algorithms Beyond Human Expertise
+A new system that combines Gemini’s coding abilities with an evolutionary approach improves data center scheduling and chip design, and fine-tunes large language models.
+Will Knight
+A United Arab Emirates Lab Announces Frontier AI Projects—and a New Outpost in Silicon Valley
+As Donald Trump pens deals in the Middle East, the gulf nation opens a research lab in San Francisco.
+Will Knight
+Jack Dorsey's Block Made an AI Agent to Boost Its Own Productivity
+Jack Dorsey’s company went all-in on agents by deploying one capable of building software—and occasionally deleting stuff.
+Will Knight
+Google’s AI Boss Says Gemini's New Abilities Point the Way to AGI
+Google’s AI models are learning to reason, wield agency, and build virtual models of the real world. The company’s AI lead, Demis Hassabis, says all this—and more—will be needed for true AGI.
+Will Knight
+The Time Sam Altman Asked for a Countersurveillance Audit of OpenAI
+In her new book
+Empire of AI
+, journalist Karen Hao chronicles the anxieties around the OpenAI office in its early days.
+Karen Hao
+OpenAI's Big Bet That Jony Ive Can Make AI Hardware Work
+Io, a firm Ive and Sam Altman cocreated, will now merge with OpenAI.
+Lauren Goode
+These Startups Are Building Advanced AI Models Without Data Centers
+A new crowd-trained way to develop LLMs over the internet could shake up the AI industry with a giant 100 billion-parameter model later this year.
+Will Knight
+Singapore’s Vision for AI Safety Bridges the US-China Divide
+In a rare moment of global consensus, AI researchers from the US, Europe, and Asia came together in Singapore to form a plan for researching AI risks.
+Will Knight
+Who’s to Blame When AI Agents Screw Up?
+As Google and Microsoft push agentic AI systems, the kinks are still being worked on how agents interact with each other—and intersect with the law.
+Paresh Dave
+WIRED is where tomorrow is realized. It is the essential source of information and ideas that make sense of a world in constant transformation. The WIRED conversation illuminates how technology is changing every aspect of our lives—from culture to business, science to design. The breakthroughs and innovations that we uncover lead to new ways of thinking, new connections, and new industries.
+More From WIRED
+Subscribe
+Newsletters
+FAQ
+WIRED Staff
+WIRED Education
+Editorial Standards
+Archive
+RSS
+Accessibility Help
+Reviews and Guides
+Reviews
+Buying Guides
+Mattresses
+Electric Bikes
+Soundbars
+Streaming Guides
+Wearables
+TVs
+Coupons
+Gift Guides
+Advertise
+Contact Us
+Manage Account
+Jobs
+Press Center
+Condé Nast Store
+User Agreement
+Privacy Policy
+Your California Privacy Rights
+©
+2025
+Condé Nast. All rights reserved.
+WIRED
+may earn a portion of sales from products that are purchased through our site as part of our Affiliate Partnerships with retailers. The material on this site may not be reproduced, distributed, transmitted, cached or otherwise used, except with the prior written permission of Condé Nast.
+Ad Choices
+Select international site
+United States
+LargeChevron
+Italia
+Japón
+Czech Republic & Slovakia
+Facebook
+X
+Pinterest
+YouTube
+Instagram
+Tiktok

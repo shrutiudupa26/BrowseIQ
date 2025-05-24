@@ -1,0 +1,205 @@
+Anthropic’s New Model Excels at Reasoning and Planning—and Has the Pokémon Skills to Prove It | WIRED
+Skip to main content
+Open Navigation Menu
+Menu
+Anthropic’s New Model Excels at Reasoning and Planning—and Has the Pokémon Skills to Prove It
+Security
+Politics
+The Big Story
+Business
+Science
+Culture
+Ideas
+Merch
+Reviews
+More
+Chevron
+Search
+Search
+Security
+Politics
+The Big Story
+Business
+Science
+Culture
+Ideas
+Merch
+Reviews
+Podcasts
+Video
+Newsletters
+Magazine
+Travel
+Steven Levy's Plaintext Column
+WIRED Classics from the Archive
+Events
+WIRED Insider
+WIRED Consulting
+Coupons
+Kylie Robison
+Business
+May 22, 2025 12:45 PM
+Anthropic’s New Model Excels at Reasoning and Planning—and Has the Pokémon Skills to Prove It
+Claude 4 Opus and Claude Sonnet 4 can remember over long periods of time—a capability that’s helpful at Pokémon and other tasks that require an ability to stay on track.
+Facebook
+X
+Email
+Save Story
+Pokémon Red Version for the Game Boy Color.
+Photograph: Shutterstock
+Save this story
+Save
+Save this story
+Save
+Anthropic announced two
+new models, Claude 4 Opus and Claude Sonnet 4, during its first developer conference in San Francisco on Thursday. Claude 4 Opus will be immediately available to paying Claude subscribers, while Claude Sonnet 4 will be available to free and paid users.
+The new models, which jump the naming convention from 3.7 straight to 4, have a number of strengths, including their ability to reason, plan, and remember the context of conversations over extended periods of time, the company says. Claude 4 Opus is also even better at playing Pokémon than its predecessor.
+“It was able to work agentically on Pokémon for 24 hours,” says Anthropic’s chief product officer Mike Krieger in an interview with WIRED. Previously, the longest the model could play was just 45 minutes, a company spokesperson added.
+A few months ago, Anthropic launched a Twitch stream called “Claude Plays Pokémon” which showcases Claude 3.7 Sonnet’s abilities at Pokémon Red live. The demo is meant to show how Claude is able to analyze the game and make decisions step by step, with minimal direction.
+Courtesy of Anthropic
+The lead behind the Pokémon research is David Hershey, a member of the technical staff at Anthropic. In an interview with WIRED, Hershey says he chose Pokémon Red because it’s “a simple playground,” meaning the game is turn-based and doesn’t require real-time reactions, which Anthropic’s current models struggle with. It was also the first video game he ever played, on the original Game Boy, after getting it for Christmas in 1997. “It has a pretty special place in my heart,” Hershey says.
+Hershey’s overarching goal with this research was to study how Claude could be used as an agent—working independently to do complex tasks on behalf of a user. While it's unclear what prior knowledge Claude has about Pokémon from its training data, its system prompt is minimal by design: You are Claude, you’re playing Pokémon, here are the tools you have, and you can press buttons on the screen.
+“Over time, I have been going through and deleting all of the Pokémon-specific stuff I can, just because I think it’s really interesting to see how much the model can figure out on its own,” Hershey says, adding that he hopes to build a game that Claude has never seen before in order to truly test its limits.
+When Claude 3.7 Sonnet played the game, it ran into some challenges: It spent “
+dozens of hours
+” stuck in one city and had trouble identifying nonplayer characters, which drastically stunted its progress in the game. With Claude 4 Opus, Hershey noticed an improvement in Claude’s long-term memory and planning capabilities when he watched it navigate a complex Pokémon quest. After realizing it needed a certain power to move forward, the AI spent two days improving its skills before continuing to play. Hershey believes that kind of multistep reasoning, with no immediate feedback, shows a new level of coherence, meaning the model has a better ability stay on track.
+“This is one of my favorite ways to get to know a model. Like, this is how I understand what its strengths are, what its weaknesses are,” Hershey says. “It’s my way of just coming to grips with this new model that we're about to put out, and how to work with it.”
+Everyone Wants an Agent
+Anthropic’s Pokémon research is a novel approach to tackling a preexisting problem—how do we understand what decisions an AI is making when approaching complex tasks, and nudge it in the right direction?
+The answer to that question is integral to advancing the industry's much-hyped AI agents—AI that can tackle complex tasks with relative independence. In Pokémon, it’s important that the model doesn’t lose context or “forget” the task at hand. That also applies to AI agents asked to automate a workflow—even one that takes hundreds of hours.
+“As a task goes from being a five-minute task to a 30-minute task, you can see the model’s ability to keep coherent, to remember all of the things it needs to accomplish [the task] successfully get worse over time,” Hershey says.
+Anthropic,
+like many other AI labs
+, is hoping to create powerful agents to sell as a product for consumers. Krieger says that Anthropic’s “top objective” this year is Claude “doing hours of work for you.”
+"This model is now delivering on it—we saw one of our early-access customers have the model go off for seven hours and do a big refactor,” Krieger says, referring to the process of restructuring a large amount of code, often to make it more efficient and organized.
+This is the future that companies like Google and OpenAI are working toward. Earlier this week, Google released Mariner,
+an AI agent built into Chrome
+that can do tasks like buy groceries (for $249.99 per month). OpenAI recently
+released a coding agent
+, and a few months back
+it launched Operator
+, an agent that can browse the web on a user’s behalf.
+Compared to its competitors, Anthropic is often seen as the more cautious mover, going fast on research but slower on deployment. And with powerful AI, that’s likely a positive: There’s a lot that could go wrong with an agent that has access to sensitive information like a user’s inbox or bank logins. In a blog post on Thursday, Anthropic says, “We’ve significantly reduced behavior where the models use shortcuts or loopholes to complete tasks.” The company also says that both Claude 4 Opus and Claude Sonnet 4 are 65 percent less likely to engage in this behavior, known as reward hacking, than prior models—at least on certain coding tasks.
+Anthropic’s chief scientist, Jared Kaplan, tells WIRED that Claude 4 Opus is the company’s first model to be classified as ASL-3—a
+safety level
+that the company uses to evaluate a model’s risks.
+“ASL-3 refers to systems that substantially increase the risk of catastrophic misuse compared to non-AI baselines,” the company
+said
+in a blog post outlining the policy.
+Kaplan says the frontier red team, the safety group in charge of stress-testing Anthropic’s models for vulnerabilities, conducted extensive evaluations on Claude 4 Opus and developed new measures to mitigate disastrous risks. In a statement provided by the company, a spokesperson said Sonnet 4 is being released under ASL-2, the baseline safety classification for all of Anthropic’s models. The larger model, Opus 4, is being treated more cautiously under stricter ASL-3 rules unless more testing shows that it can be reclassified as ASL-2.
+The goal is to build AI that can handle increasingly complex, long-term tasks safely and reliably, Kaplan says, adding that the field is moving fast, past simple chatbots and toward AI that acts as a “virtual collaborator.” It’s not there yet, and the key challenge for every AI lab is improving reliability long-term. “It's useless if halfway through it makes an error and kind of goes off the rails,” Kaplan says.
+Update 5/22/25 1:35 ET: This story has been updated to include new details about the availability of Claude 4 Opus and Claude Sonnet 4.
+You Might Also Like …
+In your inbox:
+Upgrade your life with
+WIRED-tested gear
+“Wi-Fi keeps going down”
+: Trump’s RTO mandate is going terribly
+Big Story:
+The worm that
+no computer scientist can crack
+Yuval Noah Harari
+: “Prepare to share the planet with AI superintelligence”
+Uncanny Valley:
+An insider look at
+the influence of Silicon Valley
+Kylie Robison
+is a senior correspondent at WIRED covering the business of artificial intelligence. She was previously a reporter at The Verge, Fortune, and Business Insider. Please send story tips (no PR pitches) to @kylie.01 on Signal. ...
+Read more
+Senior correspondent
+Topics
+artificial intelligence
+Anthropic
+chatbots
+models
+Read More
+Fortnite
+Players Are Already Making AI Darth Vader Swear
+Others have found more subtle ways to fool the AI into giving problematic responses.
+Megan Farokhmanesh
+A Gaming YouTuber Says an AI-Generated Clone of His Voice Is Being Used to Narrate
+Doom
+Videos
+Mark Brown, who posts game explainers to his Game Maker’s Toolkit channel, says his persona has been plagiarized.
+Megan Farokhmanesh
+AI Code Hallucinations Increase the Risk of ‘Package Confusion’ Attacks
+A new study found that code generated by AI is more likely to contain made-up information that can be used to trick software into interacting with malicious code.
+Dan Goodin, Ars Technica
+Take a Tour of All the Essential Features in ChatGPT
+If you missed WIRED’s live, subscriber-only Q&A focused on the software features of ChatGPT, hosted by Reece Rogers, you can watch the replay here.
+Reece Rogers
+Who’s to Blame When AI Agents Screw Up?
+As Google and Microsoft push agentic AI systems, the kinks are still being worked on how agents interact with each other—and intersect with the law.
+Paresh Dave
+Google’s AI Boss Says Gemini's New Abilities Point the Way to AGI
+Google’s AI models are learning to reason, wield agency, and build virtual models of the real world. The company’s AI lead, Demis Hassabis, says all this—and more—will be needed for true AGI.
+Will Knight
+Microsoft Cuts Off Access to Bing Search Data as It Shifts Focus to Chatbots
+Microsoft is limiting access to tools that boosted its rivals, but larger customers like DuckDuckGo say they won’t be affected.
+Paresh Dave
+The Sequel to Nvidia’s Most Popular GPU Hits Shelves Today—With No Reviews
+Nvidia wants you to buy the RTX 5060, but it hasn’t given reviewers a chance to test them.
+Luke Larsen
+North Korea Stole Your Job
+For years, North Korea has been secretly placing young IT workers inside Western companies. With AI, their schemes are now more devious—and effective—than ever.
+Bobbie Johnson
+Let's Talk About ChatGPT and Cheating in the Classroom
+Today on
+Uncanny Valley
+, we address one of the most pressing questions in education right now: What constitutes cheating at school in today’s world of AI?
+Michael Calore
+Trump Appointees Blocked From Entering US Copyright Office
+The two men appeared at the US Copyright Office days after the Trump administration fired its leader, who had just published a report about the use of copyrighted materials for AI training.
+Kate Knibbs
+OpenAI Launches an Agentic, Web-Based Coding Tool
+As vibe coding takes off, OpenAI says Codex will help advanced developers automate chores in a safe and explainable way.
+Will Knight
+WIRED is where tomorrow is realized. It is the essential source of information and ideas that make sense of a world in constant transformation. The WIRED conversation illuminates how technology is changing every aspect of our lives—from culture to business, science to design. The breakthroughs and innovations that we uncover lead to new ways of thinking, new connections, and new industries.
+More From WIRED
+Subscribe
+Newsletters
+FAQ
+WIRED Staff
+WIRED Education
+Editorial Standards
+Archive
+RSS
+Accessibility Help
+Reviews and Guides
+Reviews
+Buying Guides
+Mattresses
+Electric Bikes
+Soundbars
+Streaming Guides
+Wearables
+TVs
+Coupons
+Gift Guides
+Advertise
+Contact Us
+Manage Account
+Jobs
+Press Center
+Condé Nast Store
+User Agreement
+Privacy Policy
+Your California Privacy Rights
+©
+2025
+Condé Nast. All rights reserved.
+WIRED
+may earn a portion of sales from products that are purchased through our site as part of our Affiliate Partnerships with retailers. The material on this site may not be reproduced, distributed, transmitted, cached or otherwise used, except with the prior written permission of Condé Nast.
+Ad Choices
+Select international site
+United States
+LargeChevron
+Italia
+Japón
+Czech Republic & Slovakia
+Facebook
+X
+Pinterest
+YouTube
+Instagram
+Tiktok

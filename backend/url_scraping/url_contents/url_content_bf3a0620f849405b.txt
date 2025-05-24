@@ -1,0 +1,302 @@
+GitHub - solana-labs/dexterity: Reference implementation of a decentralized exchange for custom instruments, risk, and fees
+Skip to content
+Navigation Menu
+Toggle navigation
+Sign in
+Appearance settings
+Product
+GitHub Copilot
+Write better code with AI
+GitHub Models
+New
+Manage and compare prompts
+GitHub Advanced Security
+Find and fix vulnerabilities
+Actions
+Automate any workflow
+Codespaces
+Instant dev environments
+Issues
+Plan and track work
+Code Review
+Manage code changes
+Discussions
+Collaborate outside of code
+Code Search
+Find more, search less
+Explore
+Why GitHub
+All features
+Documentation
+GitHub Skills
+Blog
+Solutions
+By company size
+Enterprises
+Small and medium teams
+Startups
+Nonprofits
+By use case
+DevSecOps
+DevOps
+CI/CD
+View all use cases
+By industry
+Healthcare
+Financial services
+Manufacturing
+Government
+View all industries
+View all solutions
+Resources
+Topics
+AI
+DevOps
+Security
+Software Development
+View all
+Explore
+Learning Pathways
+Events & Webinars
+Ebooks & Whitepapers
+Customer Stories
+Partners
+Executive Insights
+Open Source
+GitHub Sponsors
+Fund open source developers
+The ReadME Project
+GitHub community articles
+Repositories
+Topics
+Trending
+Collections
+Enterprise
+Enterprise platform
+AI-powered developer platform
+Available add-ons
+GitHub Advanced Security
+Enterprise-grade security features
+Copilot for business
+Enterprise-grade AI features
+Premium Support
+Enterprise-grade 24/7 support
+Pricing
+Search or jump to...
+Search code, repositories, users, issues, pull requests...
+Search
+Clear
+Search syntax tips
+Provide feedback
+We read every piece of feedback, and take your input very seriously.
+Include my email address so I can be contacted
+Cancel
+Submit feedback
+Saved searches
+Use saved searches to filter your results more quickly
+Name
+Query
+To see all available qualifiers, see our
+documentation
+.
+Cancel
+Create saved search
+Sign in
+Sign up
+Appearance settings
+Resetting focus
+You signed in with another tab or window.
+Reload
+to refresh your session.
+You signed out in another tab or window.
+Reload
+to refresh your session.
+You switched accounts on another tab or window.
+Reload
+to refresh your session.
+Dismiss alert
+This repository was archived by the owner on Jan 13, 2025. It is now read-only.
+solana-labs
+/
+dexterity
+Public archive
+Notifications
+You must be signed in to change notification settings
+Fork
+33
+Star
+79
+Reference implementation of a decentralized exchange for custom instruments, risk, and fees
+License
+Apache-2.0 license
+79
+stars
+33
+forks
+Branches
+Tags
+Activity
+Star
+Notifications
+You must be signed in to change notification settings
+Code
+Issues
+0
+Pull requests
+1
+Actions
+Projects
+0
+Security
+Uh oh!
+There was an error while loading.
+Please reload this page
+.
+Insights
+Additional navigation options
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security
+Insights
+solana-labs/dexterity
+master
+Branches
+Tags
+Go to file
+Code
+Folders and files
+Name
+Name
+Last commit message
+Last commit date
+Latest commit
+History
+6 Commits
+client
+client
+dexteritysdk
+dexteritysdk
+programs
+programs
+.gitignore
+.gitignore
+.gitmodules
+.gitmodules
+.rustfmt.toml
+.rustfmt.toml
+Anchor.toml
+Anchor.toml
+Cargo.toml
+Cargo.toml
+LICENSE
+LICENSE
+README.md
+README.md
+build.sh
+build.sh
+deploy_all.sh
+deploy_all.sh
+master_program_config.json
+master_program_config.json
+package.json
+package.json
+test.sh
+test.sh
+tsconfig.json
+tsconfig.json
+View all files
+Repository files navigation
+README
+Apache-2.0 license
+Dexterity
+What is Dexterity
+At a high level, Dexterity is a smart contract (or collection of smart contracts) that allow for the creation of a decentralized exchange on the Solana blockchain. The modular design of these contracts allows operators to create generic instruments with customizable risk and fee models.
+To Deploy
+In order to deploy Dexterity, you will need to modify the mock keys in
+master_program_config.json
+to match the target program IDs. The build script will automatically fill in the keys into the program files.
+If you would like to use the
+deploy_all.sh
+script. Paste the upgrade authority keypair for each of these contracts into the file
+~/.config/solana/dexterity_shared.json
+. Be sure to not commit this file.
+Build and Run Tests
+Requirements:
+rust nightly
+solana clis
+[Optional] solana-test-validator
+First, install poetry for the python client (only needed the first time around):
+cd
+client
+poetry install
+Then build and test the protocol
+git submodule init
+git submodule update
+./build.sh
+./test.sh
+Note that if you use the
+--replace
+option in the
+build.sh
+script, you will need to explicitly call
+cargo build-bpf
+in the root directory to seed the target folder with program keypair files.
+About
+Reference implementation of a decentralized exchange for custom instruments, risk, and fees
+Resources
+Readme
+License
+Apache-2.0 license
+Uh oh!
+There was an error while loading.
+Please reload this page
+.
+Activity
+Custom properties
+Stars
+79
+stars
+Watchers
+6
+watching
+Forks
+33
+forks
+Report repository
+Releases
+No releases published
+Packages
+0
+No packages published
+Uh oh!
+There was an error while loading.
+Please reload this page
+.
+Contributors
+2
+Uh oh!
+There was an error while loading.
+Please reload this page
+.
+Languages
+Rust
+61.2%
+Python
+38.0%
+Shell
+0.8%
+Footer
+© 2025 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+You can’t perform that action at this time.
