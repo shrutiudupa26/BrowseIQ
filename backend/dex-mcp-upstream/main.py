@@ -12,6 +12,7 @@ import logging
 import signal
 import sys
 from typing import Any, Dict
+import json
 
 from mcp.server.fastmcp import FastMCP
 
@@ -31,7 +32,8 @@ from tools.browser import (
     grab_dom_tool,
     capture_with_highlights_tool,
     add_assistant_message_tool,
-    query_history_by_date_tool
+    query_history_by_date_tool,
+    generate_browsing_analytics_tool
 )
 
 # Configure logging
@@ -190,6 +192,32 @@ async def query_history_by_date(date: str) -> str:
     """
     logging.info(f"query_history_by_date tool called with date={date}")
     return await query_history_by_date_tool(context, {"date": date})
+
+
+@mcp.tool()
+def generate_browsing_analytics(output_file: str = "../../data/browsing_analytics.json") -> str:
+    """
+    Analyze what you search for most and your browsing patterns with website frequency data.
+    
+    Perfect for answering questions like:
+    - "What are the things I search for most?"
+    - "Which websites do I visit most frequently?"
+    - "Show me my browsing patterns by category"
+    - "What are my top visited sites?"
+    
+    Returns simplified JSON with only:
+    - domain_frequency: Top domains with visit counts, categories, and percentages
+    - category_breakdown: Website categories with visit counts and percentages
+    
+    Perfect for pie chart visualization of browsing habits and search patterns.
+    
+    Args:
+        output_file: Path where the analytics JSON file will be saved (default: backend/data/browsing_analytics.json)
+    
+    Returns:
+        JSON with domain_frequency and category_breakdown data including percentages for pie charts
+    """
+    return generate_browsing_analytics_tool(output_file)
 
 
 async def start_background_services():
