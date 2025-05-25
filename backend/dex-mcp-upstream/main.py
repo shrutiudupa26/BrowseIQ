@@ -60,9 +60,10 @@ ws_server = None
 rest_app = FastAPI()
 
 # Add CORS middleware for frontend-backend communication
+vercel_origin = os.environ.get("VERCEL_FRONTEND_URL", "https://your-vercel-app.vercel.app")
 rest_app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["http://localhost:3000", vercel_origin],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -341,9 +342,9 @@ if __name__ == "__main__":
 
         # ---- Run FastAPI REST app in a background thread ---------------
         def run_rest():
-            port = 8001
-            logger.info(f"Starting FastAPI REST app on http://127.0.0.1:{port} ...")
-            uvicorn.run(rest_app, host="127.0.0.1", port=port, log_level="info")
+            port = int(os.environ.get("PORT", 8001))
+            logger.info(f"Starting FastAPI REST app on http://0.0.0.0:{port} ...")
+            uvicorn.run(rest_app, host="0.0.0.0", port=port, log_level="info")
         rest_thread = threading.Thread(target=run_rest, daemon=True)
         rest_thread.start()
 
