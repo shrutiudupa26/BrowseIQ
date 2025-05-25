@@ -497,7 +497,7 @@ async def query_history_by_date_tool(context: Context, params: Dict[str, Any] = 
         return f"Error querying history: {str(e)}"
 
 
-def generate_browsing_analytics_tool(output_file: str = "../../data/browsing_analytics.json") -> str:
+def generate_browsing_analytics_tool(output_file: str = "data/browsing_analytics.json") -> str:
     """
     Analyze browsing patterns to show what you search for most and website visit frequencies.
     
@@ -514,13 +514,10 @@ def generate_browsing_analytics_tool(output_file: str = "../../data/browsing_ana
         Summary of most visited sites, search patterns, and category breakdown
     """
     try:
-        # Load browsing history data - fix path for MCP server directory
-        data_file = "../../data/contents.json"
+        # Load browsing history data
+        data_file = "data/contents.json"
         if not os.path.exists(data_file):
-            # Try alternative path
-            data_file = "../data/contents.json"
-            if not os.path.exists(data_file):
-                return json.dumps({"error": f"Browsing history data file not found. Checked paths: ../../data/contents.json and ../data/contents.json"}, indent=2)
+            return json.dumps({"error": f"Browsing history data file not found at {data_file}"}, indent=2)
         
         with open(data_file, 'r', encoding='utf-8') as f:
             browsing_data = json.load(f)

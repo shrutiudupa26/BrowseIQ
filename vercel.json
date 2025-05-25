@@ -1,6 +1,11 @@
 {
-  "buildCommand": "cd Website/BW2 && npm run build",
-  "outputDirectory": "Website/BW2/.next",
-  "installCommand": "cd Website/BW2 && npm install",
-  "framework": "nextjs"
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install --force",
+  "framework": "nextjs",
+  "functions": {
+    "app/api/**/*.ts": {
+      "runtime": "nodejs18.x"
+    }
+  }
 } 

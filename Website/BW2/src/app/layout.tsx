@@ -6,7 +6,11 @@ export const metadata: Metadata = {
   description: "Transform your browsing history into actionable insights. BrowseIQ is a privacy-first Dex Chrome Extension feature that provides AI-powered, personalized browsing analytics.",
   keywords: "browsing analytics, AI insights, productivity tracking, browser extension, Dex",
   authors: [{ name: "BrowseIQ Team" }],
-  viewport: "width=device-width, initial-scale=1",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({

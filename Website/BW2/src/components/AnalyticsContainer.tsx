@@ -39,6 +39,9 @@ const DOMAIN_COLORS = [
   '#F97316', '#EC4899', '#14B8A6', '#6366F1', '#84CC16'
 ];
 
+const BACKEND_PORT = process.env.NEXT_PUBLIC_BACKEND_PORT || '8000';
+const BACKEND_URL = `http://localhost:${BACKEND_PORT}`;
+
 export const AnalyticsContainer: React.FC = () => {
   const [data, setData] = useState<AnalyticsData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -48,7 +51,7 @@ export const AnalyticsContainer: React.FC = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch('/api/analytics');
+        const response = await fetch('http://localhost:8001/api/browsing_analytics');
         
         if (!response.ok) {
           throw new Error('Failed to fetch analytics data');
@@ -109,7 +112,7 @@ export const AnalyticsContainer: React.FC = () => {
     );
   }
 
-  if (!data) {
+  if (!data || !Array.isArray(data.domain_frequency) || !Array.isArray(data.category_breakdown)) {
     return (
       <div className="text-center py-20">
         <div className="text-red-400 text-xl mb-4">No analytics data available</div>

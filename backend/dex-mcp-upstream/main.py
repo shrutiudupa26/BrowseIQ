@@ -13,6 +13,12 @@ import signal
 import sys
 from typing import Any, Dict
 import json
+import uvicorn
+import socket
+from contextlib import closing
+from fastapi.responses import FileResponse
+import os
+from fastapi.middleware.cors import CORSMiddleware
 
 from mcp.server.fastmcp import FastMCP
 
@@ -36,6 +42,8 @@ from tools.browser import (
     generate_browsing_analytics_tool
 )
 
+from fastapi import FastAPI, Request
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -48,6 +56,17 @@ mcp = FastMCP("dex-browser")
 context = Context()
 ws_server = None
 
+# Add FastAPI app for REST endpoints
+rest_app = FastAPI()
+
+# Add CORS middleware for frontend-backend communication
+rest_app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @mcp.tool()
 async def get_tabs() -> str:
@@ -194,7 +213,7 @@ async def query_history_by_date(date: str) -> str:
     return await query_history_by_date_tool(context, {"date": date})
 
 @mcp.tool()
-def generate_browsing_analytics(output_file: str = "../../data/browsing_analytics.json") -> str:
+def generate_browsing_analytics(output_file: str = "data/browsing_analytics.json") -> str:
     """
     Analyze what you search for most and your browsing patterns with website frequency data.
     
@@ -211,13 +230,37 @@ def generate_browsing_analytics(output_file: str = "../../data/browsing_analytic
     Perfect for pie chart visualization of browsing habits and search patterns.
     
     Args:
-        output_file: Path where the analytics JSON file will be saved (default: backend/data/browsing_analytics.json)
+        output_file: Path where the analytics JSON file will be saved (default: data/browsing_analytics.json)
     
     Returns:
         JSON with domain_frequency and category_breakdown data including percentages for pie charts
     """
     return generate_browsing_analytics_tool(output_file)
 
+
+@rest_app.post("/api/query_history_by_date")
+async def query_history_by_date_api(request: Request):
+    try:
+        body = await request.json()
+        date = body.get("date")
+        if not date:
+            return {"error": "Date parameter is required"}, 400
+        
+        result = await query_history_by_date_tool(context, {"date": date})
+        return {"result": result}
+    except json.JSONDecodeError:
+        return {"error": "Invalid JSON in request body"}, 400
+    except Exception as e:
+        logger.error(f"Error processing history query: {str(e)}")
+        return {"error": "Internal server error"}, 500
+
+
+@rest_app.get("/api/browsing_analytics")
+async def get_browsing_analytics():
+    analytics_path = "../../data/browsing_analytics.json"
+    if not os.path.exists(analytics_path):
+        return {"error": "Analytics data not available"}, 404
+    return FileResponse(analytics_path, media_type="application/json")
 
 
 async def start_background_services():
@@ -259,6 +302,18 @@ def setup_signal_handlers():
     signal.signal(signal.SIGTERM, signal_handler)
 
 
+def find_free_port(start_port: int = 8000, max_attempts: int = 10) -> int:
+    """Find a free port starting from start_port."""
+    for port in range(start_port, start_port + max_attempts):
+        with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as sock:
+            try:
+                sock.bind(('127.0.0.1', port))
+                return port
+            except OSError:
+                continue
+    raise RuntimeError(f"Could not find a free port after {max_attempts} attempts")
+
+
 if __name__ == "__main__":
     # Set up signal handlers
     setup_signal_handlers()
@@ -283,6 +338,14 @@ if __name__ == "__main__":
 
         mcp_thread = threading.Thread(target=run_mcp, daemon=True)
         mcp_thread.start()
+
+        # ---- Run FastAPI REST app in a background thread ---------------
+        def run_rest():
+            port = 8001
+            logger.info(f"Starting FastAPI REST app on http://127.0.0.1:{port} ...")
+            uvicorn.run(rest_app, host="127.0.0.1", port=port, log_level="info")
+        rest_thread = threading.Thread(target=run_rest, daemon=True)
+        rest_thread.start()
 
         # ---- Keep the asyncio loop alive for the WebSocket server ------
         loop.run_forever()

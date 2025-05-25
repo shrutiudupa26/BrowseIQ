@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import DatePickerInsights from "@/components/DatePickerInsights";
 
 // Dynamically import AnalyticsContainer to avoid SSR hydration issues
 const AnalyticsContainer = dynamic(() => import("@/components/AnalyticsContainer"), {
@@ -44,7 +45,6 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-        <div className="absolute inset-0 bg-[url('/api/placeholder/1920/1080')] bg-cover bg-center opacity-10"></div>
         <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
           <h1 className="text-6xl md:text-8xl font-bold mb-8">
             <span className="bg-gradient-to-r from-orange-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
@@ -149,6 +149,9 @@ export default function Home() {
               Your Browsing Analytics
             </span>
           </h2>
+          <div className="mb-12">
+            <DatePickerInsights />
+          </div>
           <AnalyticsContainer />
         </div>
       </section>
@@ -228,3 +231,4 @@ export default function Home() {
     </div>
   );
 }
+
