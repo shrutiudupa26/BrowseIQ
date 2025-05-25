@@ -1,2 +1,0 @@
-# BrowseIQ
-Frontend Files
