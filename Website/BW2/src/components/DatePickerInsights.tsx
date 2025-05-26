@@ -11,11 +11,20 @@ const DatePickerInsights: React.FC = () => {
   const handleDateChange = async (date: Date | null) => {
     setSelectedDate(date);
     if (date) {
-      const timestamp = date.getTime(); // Convert date to timestamp
-      // Call the backend API to get browsing insights
-      const response = await fetch(`/api/analytics?timestamp=${timestamp}`);
-      const data = await response.json();
-      setInsights(data.insights); // Assuming the response has an 'insights' field
+      // Convert date to YYYY-MM-DD string
+      const yyyy_mm_dd = date.toISOString().split('T')[0];
+      const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8001';
+      try {
+        const response = await fetch(`${BACKEND_URL}/api/query_history_by_date`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ date: yyyy_mm_dd }),
+        });
+        const data = await response.json();
+        setInsights(data.result || 'No insights available for this date.');
+      } catch (err) {
+        setInsights('Failed to fetch insights.');
+      }
     }
   };
 
