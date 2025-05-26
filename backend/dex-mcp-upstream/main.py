@@ -59,10 +59,13 @@ ws_server = None
 rest_app = FastAPI()
 
 # Add CORS middleware for frontend-backend communication
-vercel_origin = os.environ.get("VERCEL_FRONTEND_URL", "https://your-vercel-app.vercel.app")
 rest_app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", vercel_origin],
+    allow_origins=[
+        "http://localhost:3000",
+        "https://browse-iq.vercel.app",
+        "https://browse-d0wgfg2wf-shruti-udupas-projects.vercel.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -261,16 +264,6 @@ async def get_browsing_analytics():
     if not os.path.exists(analytics_path):
         return {"error": "Analytics data not available"}, 404
     return FileResponse(analytics_path, media_type="application/json")
-
-
-@rest_app.options("/api/query_history_by_date")
-async def options_query_history_by_date():
-    return Response(status_code=204)
-
-
-@rest_app.options("/api/browsing_analytics")
-async def options_browsing_analytics():
-    return Response(status_code=204)
 
 
 async def start_background_services():
