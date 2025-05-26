@@ -19,6 +19,7 @@ from contextlib import closing
 from fastapi.responses import FileResponse
 import os
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, Request, Response
 
 from mcp.server.fastmcp import FastMCP
 
@@ -41,8 +42,6 @@ from tools.browser import (
     query_history_by_date_tool,
     generate_browsing_analytics_tool
 )
-
-from fastapi import FastAPI, Request
 
 # Configure logging
 logging.basicConfig(
@@ -262,6 +261,16 @@ async def get_browsing_analytics():
     if not os.path.exists(analytics_path):
         return {"error": "Analytics data not available"}, 404
     return FileResponse(analytics_path, media_type="application/json")
+
+
+@rest_app.options("/api/query_history_by_date")
+async def options_query_history_by_date():
+    return Response(status_code=204)
+
+
+@rest_app.options("/api/browsing_analytics")
+async def options_browsing_analytics():
+    return Response(status_code=204)
 
 
 async def start_background_services():
