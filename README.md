@@ -35,11 +35,13 @@ Displays total pages visited, top domains, and browsing activity per day.
 ![Browsing Analytics Screenshot](./data/3.png)
 
 ---
-Link to Devpost : https://devpost.com/software/browseiq
-Link to application : https://browse-iq.vercel.app/
 ### Browsing Insights & Categories  
 Understand your time distribution across **Technology**, **Search**, **Media**, and more, all visualized in real-time.
 
 ![Browsing Categories and Domains](./data/2.png)
+
+---
+Link to Devpost : https://devpost.com/software/browseiq
+Link to application : https://browse-iq.vercel.app/
 
 ---
