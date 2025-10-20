@@ -1,4 +1,4 @@
-🌐 BrowserIQ — Your Smart Browser History Agent
+BrowserIQ : Your Smart Browser History Agent
 
 ![BrowserIQ Banner](./data/1.png)
 
