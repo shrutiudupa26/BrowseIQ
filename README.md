@@ -1,6 +1,6 @@
-# 🌐 BrowserIQ — Smart Browser History
+🌐 BrowserIQ — Your Smart Browser History Agent
 
-![BrowserIQ Banner](32bd9b55-d945-4f7b-a743-3c0b09999677.png)
+![BrowserIQ Banner](./data/1.png)
 
 BrowserIQ transforms your **raw browser history** into **visual insights** — helping you understand your digital habits, recall searches instantly, and visualize your browsing patterns.  
 Whether you're a **student**, **professional**, or a **curious web explorer**, BrowserIQ helps you reclaim time and rediscover your top interests.
@@ -32,13 +32,13 @@ Whether you're a **student**, **professional**, or a **curious web explorer**, B
 ### Daily Browsing Summary  
 Displays total pages visited, top domains, and browsing activity per day.
 
-![Browsing Analytics Screenshot](32bd9b55-d945-4f7b-a743-3c0b09999677.png)
+![Browsing Analytics Screenshot](./data/2.png)
 
 ---
 
 ### Browsing Insights & Categories  
 Understand your time distribution across **Technology**, **Search**, **Media**, and more — all visualized in real-time.
 
-![Browsing Categories and Domains](41e20c8b-ca4f-407c-a68c-ad1d99268610.png)
+![Browsing Categories and Domains](./data/3.png)
 
 ---
